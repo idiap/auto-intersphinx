@@ -1,0 +1,39 @@
+{
+  "click": {
+    "versions": {
+      "latest": "https://click.palletsprojects.com/en/latest/",
+      "8.1.x": "https://click.palletsprojects.com/en/8.1.x/",
+      "8.0.x": "https://click.palletsprojects.com/en/8.0.x/",
+      "7.x": "https://click.palletsprojects.com/en/7.x/",
+      "6.x": "https://click.palletsprojects.com/en/6.x/",
+      "5.x": "https://click.palletsprojects.com/en/5.x/",
+      "4.x": "https://click.palletsprojects.com/en/4.x/",
+      "3.x": "https://click.palletsprojects.com/en/3.x/",
+      "2.x": "https://click.palletsprojects.com/en/2.x/",
+      "1.x": "https://click.palletsprojects.com/en/1.x/"
+    },
+    "sources": {}
+  },
+  "numpy": {
+    "versions": {
+      "latest": "https://numpy.org/devdocs/",
+      "stable": "https://numpy.org/doc/stable/",
+      "1.23.4": "https://numpy.org/doc/1.23/",
+      "1.23.x": "https://numpy.org/doc/1.23/",
+      "1.22.x": "https://numpy.org/doc/1.22/",
+      "1.21.x": "https://numpy.org/doc/1.21/"
+    },
+    "sources": {
+      "pypi": "numpy"
+    }
+  },
+  "packaging": {
+    "versions": {
+      "latest": "https://packaging.pypa.io/en/latest/",
+      "stable": "https://packaging.pypa.io/en/stable/"
+    },
+    "sources": {
+      "readthedocs": "packaging"
+    }
+  }
+}

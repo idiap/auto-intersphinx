@@ -1,0 +1,11 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: auto-intersphinx
+Upstream-Contact: André Anjos <andre.anjos@idiap.ch>
+Source: https://gitlab.idiap.ch/bob/auto-intersphinx/
+
+Files:
+ pixi.lock
+ src/auto_intersphinx/catalog.json
+ tests/data/*
+Copyright: Copyright © 2022 Idiap Research Institute <contact@idiap.ch>
+License: BSD-3-Clause
