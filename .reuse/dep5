@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: auto-intersphinx
 Upstream-Contact: André Anjos <andre.anjos@idiap.ch>
-Source: https://gitlab.idiap.ch/bob/auto-intersphinx/
+Source: https://github.com/idiap/auto-intersphinx/
 
 Files:
  pixi.lock
