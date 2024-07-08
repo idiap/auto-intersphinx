@@ -28,8 +28,8 @@ dependencies = ["sphinx", "packaging", "requests", "lxml"]
 [project.urls]
 documentation = "https://auto-intersphinx.readthedocs.io/en/latest/"
 homepage = "https://pypi.org/project/auto-intersphinx"
-repository = "https://gitlab.idiap.ch/software/auto-intersphinx"
-changelog = "https://gitlab.idiap.ch/software/auto-intersphinx/-/releases"
+repository = "https://github.com/idiap/auto-intersphinx"
+changelog = "https://github.com/idiap/auto-intersphinx/releases"
 
 [project.optional-dependencies]
 qa = ["pre-commit"]
