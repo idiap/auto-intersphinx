@@ -27,7 +27,7 @@ relevant tab for details on each of those installation paths.
 
    .. code:: sh
 
-      pip install git+https://gitlab.idiap.ch/software/auto-intersphinx@main
+      pip install git+https://github.com/idiap/auto-intersphinx@main
 
 
 .. tab:: Deployment (pixi)
@@ -46,7 +46,7 @@ relevant tab for details on each of those installation paths.
 
    .. code:: sh
 
-      git clone git@gitlab.idiap.ch:software/auto-intersphinx
+      git clone git@github.com:idiap/auto-intersphinx
       pixi install --frozen
 
    .. tip::
