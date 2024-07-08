@@ -4,10 +4,10 @@ SPDX-FileCopyrightText: Copyright © 2022 Idiap Research Institute <contact@idia
 SPDX-License-Identifier: BSD-3-Clause
 -->
 
-[![latest-docs](https://img.shields.io/badge/docs-latest-orange.svg)](https://auto-intersphinx.readthedocs.io/en/latest/)
-[![build](https://gitlab.idiap.ch/software/auto-intersphinx/badges/main/pipeline.svg)](https://gitlab.idiap.ch/software/auto-intersphinx/commits/main)
-[![coverage](https://gitlab.idiap.ch/software/auto-intersphinx/badges/main/coverage.svg)](https://www.idiap.ch/software/biosignal/docs/software/auto-intersphinx/main/coverage/index.html)
-[![repository](https://img.shields.io/badge/gitlab-project-0000c0.svg)](https://gitlab.idiap.ch/software/auto-intersphinx)
+[![latest-docs](https://img.shields.io/badge/docs-latest-orange)](https://auto-intersphinx.readthedocs.io/en/latest/)
+<!-- [![build](https://TODO/idiap/auto-intersphinx/badges/main/pipeline.svg)](https://github.com/idiap/auto-intersphinx/actions) -->
+<!-- [![coverage](https://TODO/idiap/auto-intersphinx/badges/main/coverage.svg)](https://www.idiap.ch/software/biosignal/docs/software/auto-intersphinx/main/coverage/index.html) -->
+[![repository](https://img.shields.io/badge/github-project-darkblue)](https://github.com/idiap/auto-intersphinx)
 
 # Automatically Links Package Documentation from Their Names
 
