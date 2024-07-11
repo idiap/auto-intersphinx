@@ -61,3 +61,10 @@ repos:
     rev: v3.0.2
     hooks:
       - id: reuse
+  - repo: local
+    hooks:
+      - id: pixi
+        name: Check outdated pixi.lock
+        language: system
+        entry: pixi list --locked
+        pass_filenames: false

@@ -32,7 +32,7 @@ repository = "https://github.com/idiap/auto-intersphinx"
 changelog = "https://github.com/idiap/auto-intersphinx/releases"
 
 [project.optional-dependencies]
-qa = ["pre-commit"]
+qa = ["pre-commit", "reuse", "ruff"]
 doc = [
   "furo",
   "sphinx-autodoc-typehints",
@@ -57,8 +57,9 @@ sphinx = "*"
 packaging = "*"
 requests = "*"
 lxml = "*"
+python = ">=3.10"
 
-[tool.pixi.feature.self.pypi-dependencies]
+[tool.pixi.pypi-dependencies]
 auto-intersphinx = { path = ".", editable = true }
 
 [tool.pixi.feature.py311.dependencies]
@@ -74,8 +75,8 @@ reuse = "*"
 
 [tool.pixi.feature.qa.tasks]
 qa-install = "pre-commit install"
-qa = "pre-commit run --all-files"
-qa-ci = "pre-commit run --all-files --show-diff-on-failure --verbose"
+qa = { cmd = "pre-commit run --all-files", depends-on = ["qa-install"] }
+qa-ci = { cmd = "pre-commit run --all-files --show-diff-on-failure --verbose", depends-on = ["qa-install"] }
 
 [tool.pixi.feature.doc.dependencies]
 furo = "*"
@@ -86,8 +87,8 @@ sphinx-argparse = "*"
 
 [tool.pixi.feature.doc.tasks]
 doc-clean = "rm -rf doc/api && rm -rf html"
-doc = "sphinx-build -aEW doc html"
-doctest = "sphinx-build -aEb doctest doc html/doctest"
+doc = { cmd = "sphinx-build -aEW doc html", depends-on = ["doc-clean"] }
+doctest = { cmd = "sphinx-build -aEb doctest doc html/doctest", depends-on = ["doc-clean"] }
 
 [tool.pixi.feature.test.dependencies]
 pytest = "*"
@@ -95,17 +96,12 @@ pytest-cov = "*"
 
 [tool.pixi.feature.test.tasks]
 test = "pytest -sv tests/"
-test-ci = "pytest -sv --cov-report 'html:html/coverage' --cov-report 'xml:coverage.xml' --junitxml 'junit-coverage.xml' --ignore '.profile' tests/"
+test-ci = "pytest -sv --cov-branch tests/"
 
 [tool.pixi.feature.build.dependencies]
 hatch = "*"
 versioningit = "*"
 twine = "*"
-
-[tool.pixi.feature.build.tasks]
-build = "hatch build"
-check = "twine check dist/*"
-upload = "twine upload dist/*"
 
 [tool.pixi.feature.dev.dependencies]
 pdbpp = "*"
@@ -115,10 +111,13 @@ uv = "*"
 update-catalog = "auto-intersphinx update-catalog -vvv --self -o src/auto_intersphinx/catalog.json"
 
 [tool.pixi.environments]
-default = { features = ["qa", "build", "doc", "test", "dev", "py312", "self"] }
-qa-ci = { features = ["qa", "py312"] }
-build-ci = { features = ["build", "py312"] }
-test-ci-alternative = { features = ["test", "py311", "self"] }
+default = { features = ["qa", "doc", "test", "dev", "py312"], solve-group = "default" }
+qa = { features = ["qa", "py312"], solve-group = "default" }
+test = { features = ["test", "py312"], solve-group = "default" }
+doc = { features = ["doc", "py312"], solve-group = "default"}
+
+alternative = { features = ["qa", "doc", "test", "dev", "py311"], solve-group = "alternative" }
+test-ci-alternative = { features = ["test", "py311"], solve-group = "alternative" }
 
 [tool.hatch.version]
 source = "versioningit"
@@ -165,5 +164,3 @@ addopts = [
   "--cov-report=term-missing",
   "--import-mode=append",
 ]
-junit_logging = "all"
-junit_log_passing_tests = false
