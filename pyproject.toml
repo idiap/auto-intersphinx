@@ -98,11 +98,6 @@ pytest-cov = "*"
 test = "pytest -sv tests/"
 test-ci = "pytest -sv --cov-branch tests/"
 
-[tool.pixi.feature.build.dependencies]
-hatch = "*"
-versioningit = "*"
-twine = "*"
-
 [tool.pixi.feature.dev.dependencies]
 pdbpp = "*"
 uv = "*"
@@ -117,7 +112,7 @@ test = { features = ["test", "py312"], solve-group = "default" }
 doc = { features = ["doc", "py312"], solve-group = "default"}
 
 alternative = { features = ["qa", "doc", "test", "dev", "py311"], solve-group = "alternative" }
-test-ci-alternative = { features = ["test", "py311"], solve-group = "alternative" }
+test-alternative = { features = ["test", "py311"], solve-group = "alternative" }
 
 [tool.hatch.version]
 source = "versioningit"
