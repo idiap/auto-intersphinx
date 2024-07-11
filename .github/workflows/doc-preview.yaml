@@ -9,8 +9,6 @@ name: Documentation preview on readthedocs for Pull Requests
 
 on:
   pull_request_target:
-    branches:
-      [ "main" ]
     types:
       - opened
 
