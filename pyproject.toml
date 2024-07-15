@@ -57,7 +57,6 @@ sphinx = "*"
 packaging = "*"
 requests = "*"
 lxml = "*"
-python = ">=3.10"
 
 [tool.pixi.pypi-dependencies]
 auto-intersphinx = { path = ".", editable = true }
@@ -87,8 +86,8 @@ sphinx-argparse = "*"
 
 [tool.pixi.feature.doc.tasks]
 doc-clean = "rm -rf doc/api && rm -rf html"
-doc = { cmd = "sphinx-build -aEW doc html", depends-on = ["doc-clean"] }
-doctest = { cmd = "sphinx-build -aEb doctest doc html/doctest", depends-on = ["doc-clean"] }
+doc = "sphinx-build -aEW doc html"
+doctest = "sphinx-build -aEb doctest doc html/doctest"
 
 [tool.pixi.feature.test.dependencies]
 pytest = "*"

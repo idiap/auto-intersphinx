@@ -1063,9 +1063,9 @@ packages:
   timestamp: 1704011393776
 - kind: pypi
   name: auto-intersphinx
-  version: 1.1.2.dev12+gc58cc55.d20240711
+  version: 1.1.2.dev15+gf6f7813.d20240715
   path: .
-  sha256: 21d1e441317f173d272980da28e245809f91e4649dfadece93c6cee8078ccb90
+  sha256: 857072b4b42ea869c9baf16a65cb06fd5d0fe37274721fb7bff336e90e060d2f
   requires_dist:
   - lxml
   - packaging
