@@ -3,7 +3,7 @@
 
 # SPDX-License-Identifier: BSD-3-Clause
 
-name: Publish package to Pypi
+name: Publish package to Pypi and to the current release
 
 on:
   release:
@@ -54,10 +54,10 @@ jobs:
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
 
-  github-release:
+  github-publish:
     name: Upload the release package to GitHub Release
     needs:
-      - pypi-publish
+      - release-packaging
     runs-on: ubuntu-22.04
     permissions:
       contents: write  # IMPORTANT: mandatory for making GitHub Releases
