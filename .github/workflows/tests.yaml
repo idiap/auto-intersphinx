@@ -32,7 +32,7 @@ jobs:
           pixi-version: v0.25.0
           environments: ${{ matrix.pixi_environment }}
       - name: Run Tests
-        run: pixi run test-ci
+        run: pixi run -e ${{ matrix.pixi_environment }} test-ci
         env:
           COVERAGE_FILE: ".coverage.${{ matrix.pixi_environment }}-${{ matrix.os }}"
       - name: Store coverage report
@@ -88,6 +88,6 @@ jobs:
           pixi-version: v0.25.0
           environments: doc
       - name: Build docs
-        run: pixi run doc
+        run: pixi run -e doc doc
       - name: Run doctests
-        run: pixi run doctest
+        run: pixi run -e doc doctest
