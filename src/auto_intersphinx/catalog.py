@@ -101,7 +101,10 @@ def docurls_from_environment(package: str) -> dict[str, str]:
             return {}
         for k in md.get_all("Project-URL"):
             if k.startswith(("documentation, ", "Documentation, ")):
-                addr = _ensure_webdir(k.split(",", 1)[1].strip())
+                raw_addr = k.split(",", 1)[1].strip()
+                # Find the final address after eventual redirects.
+                redirected = requests.head(raw_addr, allow_redirects=True).url
+                addr = _ensure_webdir(redirected)
                 if requests.head(addr + "/objects.inv").ok:
                     try:
                         return {md["version"]: addr}
@@ -194,7 +197,9 @@ def docurls_from_pypi(package: str, max_entries: int) -> dict[str, str]:
     urls = data["info"]["project_urls"]
     addr = urls.get("Documentation") or urls.get("documentation")
     if addr is not None:
-        addr = _ensure_webdir(addr)
+        # Find the final address after eventual redirects.
+        redirected = requests.head(addr, allow_redirects=True).url
+        addr = _ensure_webdir(redirected)
         if requests.head(addr + "/objects.inv").ok:
             versions[data["info"]["version"]] = addr
 
