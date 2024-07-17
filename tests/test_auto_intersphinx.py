@@ -4,6 +4,7 @@
 
 import os
 import pathlib
+import re
 import subprocess
 import sys
 import typing
@@ -95,15 +96,14 @@ def test_basic_functionality(tmp_path) -> None:
 
     assert status == 0
 
-    assert (
-        f"loading intersphinx inventory from "
-        f"https://docs.python.org/{sys.version_info[0]}.{sys.version_info[1]}" in stdout
-    )
+    exp_url = f"https://docs.python.org/{sys.version_info[0]}.{sys.version_info[1]}"
+    # Some versions of sphinx have an additional 'package_name' in the output
+    pattern = f"loading intersphinx inventory( 'python')? from {re.escape(exp_url)}"
+    assert re.search(pattern, stdout) is not None
 
-    assert (
-        "loading intersphinx inventory from https://numpy.org/doc/stable/objects.inv"
-        in stdout
-    )
+    exp_url = "https://numpy.org/doc/stable/objects.inv"
+    pattern = f"loading intersphinx inventory( 'numpy')? from {re.escape(exp_url)}"
+    assert re.search(pattern, stdout) is not None
 
     assert (htmldir / "index.html").exists()
 
@@ -128,10 +128,10 @@ def test_warnings_dev_and_base(tmp_path) -> None:
 
     assert status == 0
 
-    assert (
-        "loading intersphinx inventory from https://numpy.org/devdocs/objects.inv"
-        in stdout
-    )
+    exp_url = "https://numpy.org/devdocs/objects.inv"
+    # Some versions of sphinx have an additional 'package_name' in the output
+    pattern = f"loading intersphinx inventory( 'numpy')? from {re.escape(exp_url)}"
+    assert re.search(pattern, stdout) is not None
 
     assert "Ignoring reset of `numpy' intersphinx_mapping" in stderr
 
@@ -156,7 +156,10 @@ def test_can_remove_duplicates_without_warning(tmp_path) -> None:
 
     assert status == 0
 
-    assert "loading intersphinx inventory from https://numpy.org/doc/stable/" in stdout
+    exp_url = "https://numpy.org/doc/stable/"
+    # Some versions of sphinx have an additional 'package_name' in the output
+    pattern = f"loading intersphinx inventory( 'numpy')? from {re.escape(exp_url)}"
+    assert re.search(pattern, stdout) is not None
 
     assert "Ignoring repeated setting of `numpy' intersphinx_mapping" in stdout
 
@@ -182,7 +185,10 @@ def test_conflict_from_intersphinx_mapping(tmp_path) -> None:
 
     assert status == 0
 
-    assert "loading intersphinx inventory from https://numpy.org/doc/stable/" in stdout
+    exp_url = "https://numpy.org/doc/stable/"
+    # Some versions of sphinx have an additional 'package_name' in the output
+    pattern = f"loading intersphinx inventory( 'numpy')? from {re.escape(exp_url)}"
+    assert re.search(pattern, stdout) is not None
 
     assert "Ignoring repeated setting of `numpy' intersphinx_mapping" in stdout
 
@@ -207,7 +213,9 @@ def test_discover_from_internal_catalog(tmp_path) -> None:
 
     assert status == 0
 
-    assert "loading intersphinx inventory from https://setuptools" in stdout
+    # Some versions of sphinx have an additional 'package_name' in the output
+    pattern = "loading intersphinx inventory( 'setuptools')? from https://setuptools"
+    assert re.search(pattern, stdout) is not None
 
     assert (htmldir / "index.html").exists()
 
@@ -278,10 +286,10 @@ def test_discover_from_metadata(tmp_path) -> None:
 
     assert status == 0
 
-    assert (
-        "loading intersphinx inventory from https://jinja.palletsprojects.com/"
-        in stdout
-    )
+    exp_url = "https://jinja.palletsprojects.com/"
+    # Some versions of sphinx have an additional 'package_name' in the output
+    pattern = f"loading intersphinx inventory( 'jinja2')? from {re.escape(exp_url)}"
+    assert re.search(pattern, stdout) is not None
 
     assert (htmldir / "index.html").exists()
 
@@ -304,10 +312,10 @@ def test_create_user_catalog(tmp_path) -> None:
 
     assert status == 0
 
-    assert (
-        "loading intersphinx inventory from https://flask.palletsprojects.com/"
-        in stdout
-    )
+    exp_url = "https://flask.palletsprojects.com/"
+    # Some versions of sphinx have an additional 'package_name' in the output
+    pattern = f"loading intersphinx inventory( 'flask')? from {re.escape(exp_url)}"
+    assert re.search(pattern, stdout) is not None
 
     assert (srcdir / "catalog.json").exists()
 
