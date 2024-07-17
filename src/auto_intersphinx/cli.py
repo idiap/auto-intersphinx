@@ -14,6 +14,10 @@ def make_parser() -> argparse.ArgumentParser:
         prog=sys.argv[0],
         description="Commands to handle sphinx catalogs.",
     )
+
+    # Show the help message when no argument is passed
+    parser.set_defaults(func=lambda _args: parser.print_help())
+
     subparsers = parser.add_subparsers(help="commands")
 
     from . import check_packages
