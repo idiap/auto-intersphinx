@@ -41,6 +41,7 @@ doc = [
   "sphinx-argparse",
 ]
 test = ["pytest", "pytest-cov"]
+dev = ["pdbpp", "uv", "auto-intersphinx[doc,test,qa]"]
 
 [project.scripts]
 auto-intersphinx = "auto_intersphinx.cli:main"
@@ -52,12 +53,6 @@ platforms = ["linux-64", "osx-arm64"]
 [tool.pixi.system-requirements]
 linux = "4.19.0"
 
-[tool.pixi.dependencies]
-sphinx = "*"
-packaging = "*"
-requests = "*"
-lxml = "*"
-
 [tool.pixi.pypi-dependencies]
 auto-intersphinx = { path = ".", editable = true }
 
@@ -67,50 +62,31 @@ python = "~=3.11.0"
 [tool.pixi.feature.py312.dependencies]
 python = "~=3.12.0"
 
-[tool.pixi.feature.qa.dependencies]
-pre-commit = "*"
-ruff = "*"
-reuse = "*"
-
 [tool.pixi.feature.qa.tasks]
 qa-install = "pre-commit install"
 qa = { cmd = "pre-commit run --all-files", depends-on = ["qa-install"] }
 qa-ci = { cmd = "pre-commit run --all-files --show-diff-on-failure --verbose", depends-on = ["qa-install"] }
-
-[tool.pixi.feature.doc.dependencies]
-furo = "*"
-sphinx-autodoc-typehints = "*"
-sphinx-copybutton = "*"
-sphinx-inline-tabs = "*"
-sphinx-argparse = "*"
 
 [tool.pixi.feature.doc.tasks]
 doc-clean = "rm -rf doc/api && rm -rf html"
 doc = "sphinx-build -aEW doc html"
 doctest = "sphinx-build -aEb doctest doc html/doctest"
 
-[tool.pixi.feature.test.dependencies]
-pytest = "*"
-pytest-cov = "*"
-
 [tool.pixi.feature.test.tasks]
 test = "pytest -sv tests/"
 test-ci = "pytest -sv --cov-branch tests/"
-
-[tool.pixi.feature.dev.dependencies]
-pdbpp = "*"
-uv = "*"
 
 [tool.pixi.feature.dev.tasks]
 update-catalog = "auto-intersphinx update-catalog -vvv --self -o src/auto_intersphinx/catalog.json"
 
 [tool.pixi.environments]
-default = { features = ["qa", "doc", "test", "dev", "py312"], solve-group = "default" }
+default = { features = ["qa", "doc", "test", "py312"], solve-group = "default" }
 qa = { features = ["qa", "py312"], solve-group = "default" }
 test = { features = ["test", "py312"], solve-group = "default" }
-doc = { features = ["doc", "py312"], solve-group = "default"}
+doc = { features = ["doc", "py312"], solve-group = "default" }
+dev = { features = ["dev", "qa", "doc", "test", "py312"], solve-group = "default" }
 
-alternative = { features = ["qa", "doc", "test", "dev", "py311"], solve-group = "alternative" }
+alternative = { features = ["qa", "doc", "test", "py311"], solve-group = "alternative" }
 test-alternative = { features = ["test", "py311"], solve-group = "alternative" }
 
 [tool.hatch.version]
