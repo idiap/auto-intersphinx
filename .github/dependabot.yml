@@ -13,3 +13,7 @@ updates:
       interval: monthly
       time: "05:00"
       timezone: CET
+    groups:
+      dependencies:
+        patterns:
+          - "*" # Make only one pull request when multiple deps require updates
