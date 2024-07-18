@@ -3,7 +3,7 @@
 
 # SPDX-License-Identifier: BSD-3-Clause
 
-name: Check the project is up to our quality standards
+name: qa
 
 on:
   pull_request:

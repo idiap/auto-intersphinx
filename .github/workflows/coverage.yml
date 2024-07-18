@@ -5,7 +5,7 @@
 
 # Inspired from https://github.com/py-cov-action/python-coverage-comment-action
 
-name: Add a coverage comment to the Pull Request
+name: coverage comment
 
 on:
   workflow_run:
