@@ -3,7 +3,7 @@
 
 # SPDX-License-Identifier: BSD-3-Clause
 
-name: Publish package to Pypi and to the current release
+name: deploy release
 
 on:
   release:

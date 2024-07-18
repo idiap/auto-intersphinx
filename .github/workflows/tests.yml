@@ -3,7 +3,7 @@
 
 # SPDX-License-Identifier: BSD-3-Clause
 
-name: Test the code, doc building, and packaging
+name: tests
 
 on:
   push:

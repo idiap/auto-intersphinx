@@ -5,7 +5,7 @@
 
 # Inspired from https://github.com/readthedocs/actions/tree/v1/preview
 
-name: Documentation preview on readthedocs for Pull Requests
+name: doc preview
 
 on:
   pull_request_target:
