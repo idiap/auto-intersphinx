@@ -103,8 +103,12 @@ def docurls_from_environment(package: str) -> dict[str, str]:
             if k.startswith(("documentation, ", "Documentation, ")):
                 raw_addr = k.split(",", 1)[1].strip()
                 # Find the final address after eventual redirects.
-                redirected = requests.head(raw_addr, allow_redirects=True).url
-                addr = _ensure_webdir(redirected)
+                redirected = requests.head(
+                    raw_addr,
+                    allow_redirects=True,
+                    headers={"Accept-Encoding": ""},  # Fixes issue on some links
+                )
+                addr = _ensure_webdir(redirected.url)
                 if requests.head(addr + "/objects.inv").ok:
                     try:
                         return {md["version"]: addr}
@@ -198,8 +202,12 @@ def docurls_from_pypi(package: str, max_entries: int) -> dict[str, str]:
     addr = urls.get("Documentation") or urls.get("documentation")
     if addr is not None:
         # Find the final address after eventual redirects.
-        redirected = requests.head(addr, allow_redirects=True).url
-        addr = _ensure_webdir(redirected)
+        redirected = requests.head(
+            addr,
+            allow_redirects=True,
+            headers={"Accept-Encoding": ""},  # Fixes issue on some links
+        )
+        addr = _ensure_webdir(redirected.url)
         if requests.head(addr + "/objects.inv").ok:
             versions[data["info"]["version"]] = addr
 
