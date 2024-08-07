@@ -109,7 +109,7 @@ def docurls_from_environment(package: str) -> dict[str, str]:
                     headers={"Accept-Encoding": ""},  # Fixes issue on some links
                 )
                 addr = _ensure_webdir(redirected.url)
-                if requests.head(addr + "/objects.inv").ok:
+                if requests.head(addr + "objects.inv").ok:
                     try:
                         return {md["version"]: addr}
                     except KeyError:
@@ -208,7 +208,7 @@ def docurls_from_pypi(package: str, max_entries: int) -> dict[str, str]:
             headers={"Accept-Encoding": ""},  # Fixes issue on some links
         )
         addr = _ensure_webdir(redirected.url)
-        if requests.head(addr + "/objects.inv").ok:
+        if requests.head(addr + "objects.inv").ok:
             versions[data["info"]["version"]] = addr
 
     # download further versions, if requested by user
@@ -231,7 +231,7 @@ def docurls_from_pypi(package: str, max_entries: int) -> dict[str, str]:
         addr = urls.get("Documentation") or urls.get("documentation")
         if addr is not None:
             addr = _ensure_webdir(addr)
-            if requests.head(addr + "/objects.inv").ok:
+            if requests.head(addr + "objects.inv").ok:
                 versions[data["info"]["version"]] = addr
 
     return versions
