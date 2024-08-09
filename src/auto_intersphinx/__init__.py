@@ -91,7 +91,10 @@ def _add_index(
     if name not in mapping:
         mapping[name] = (addr, objects_inv)
 
-    elif mapping[name][0] == addr and mapping[name][1] == objects_inv:
+    elif (
+        mapping[name][0].rstrip("/") == addr.rstrip("/")
+        and mapping[name][1] == objects_inv
+    ):
         logger.info(f"Ignoring repeated setting of `{name}' intersphinx_mapping")
 
     else:
