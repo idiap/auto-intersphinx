@@ -303,7 +303,12 @@ class Catalog(collections.abc.MutableMapping):
 
     # mutable mapping operations, so this looks like a dictionary
     def __getitem__(self, key: str) -> PackageDictionaryType:
-        return self._data[key]
+        ret = self._data[key]
+        # Returns the URLs without trailing slash
+        for v in ret.values():
+            for k, url in v.items():
+                v[k] = url.rstrip("/")
+        return ret
 
     def __setitem__(self, key: str, value: PackageDictionaryType) -> None:
         self._data[key] = value
