@@ -40,6 +40,8 @@ jobs:
           # File renamed for thix matrix element
           name: coverage-${{ matrix.pixi_environment }}-${{ matrix.os }}
           path: .coverage.${{ matrix.pixi_environment }}-${{ matrix.os }}
+          include-hidden-files: true
+          if-no-files-found: error
 
   merge-coverage:
     name: Merge the coverage reports from multiple coverages
