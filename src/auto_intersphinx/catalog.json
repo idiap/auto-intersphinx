@@ -13,16 +13,46 @@
       "2.x": "https://click.palletsprojects.com/en/2.x/",
       "1.x": "https://click.palletsprojects.com/en/1.x/"
     },
-    "sources": {}
-  },
-  "click-plugins": {
-    "versions": {},
-    "sources": {}
+    "sources": {
+      "readthedocs": "click"
+    }
   },
   "coverage": {
     "versions": {
       "latest": "https://coverage.readthedocs.io/en/latest/",
-      "stable": "https://coverage.readthedocs.io/en/stable/",
+      "7.11.0": "https://coverage.readthedocs.io/en/7.11.0/",
+      "7.10.7": "https://coverage.readthedocs.io/en/7.10.7/",
+      "7.10.6": "https://coverage.readthedocs.io/en/7.10.6/",
+      "7.10.5": "https://coverage.readthedocs.io/en/7.10.5/",
+      "7.10.4": "https://coverage.readthedocs.io/en/7.10.4/",
+      "7.10.3": "https://coverage.readthedocs.io/en/7.10.3/",
+      "7.10.2": "https://coverage.readthedocs.io/en/7.10.2/",
+      "7.10.1": "https://coverage.readthedocs.io/en/7.10.1/",
+      "7.10.0": "https://coverage.readthedocs.io/en/7.10.0/",
+      "7.9.2": "https://coverage.readthedocs.io/en/7.9.2/",
+      "7.9.1": "https://coverage.readthedocs.io/en/7.9.1/",
+      "7.9.0": "https://coverage.readthedocs.io/en/7.9.0/",
+      "7.8.2": "https://coverage.readthedocs.io/en/7.8.2/",
+      "7.8.1": "https://coverage.readthedocs.io/en/7.8.1/",
+      "7.8.0": "https://coverage.readthedocs.io/en/7.8.0/",
+      "7.7.1": "https://coverage.readthedocs.io/en/7.7.1/",
+      "7.7.0": "https://coverage.readthedocs.io/en/7.7.0/",
+      "7.6.12": "https://coverage.readthedocs.io/en/7.6.12/",
+      "7.6.11": "https://coverage.readthedocs.io/en/7.6.11/",
+      "7.6.10": "https://coverage.readthedocs.io/en/7.6.10/",
+      "7.6.9": "https://coverage.readthedocs.io/en/7.6.9/",
+      "7.6.8": "https://coverage.readthedocs.io/en/7.6.8/",
+      "7.6.7": "https://coverage.readthedocs.io/en/7.6.7/",
+      "7.6.6": "https://coverage.readthedocs.io/en/7.6.6/",
+      "7.6.5": "https://coverage.readthedocs.io/en/7.6.5/",
+      "7.6.4": "https://coverage.readthedocs.io/en/7.6.4/",
+      "7.6.3": "https://coverage.readthedocs.io/en/7.6.3/",
+      "7.6.2": "https://coverage.readthedocs.io/en/7.6.2/",
+      "7.6.1": "https://coverage.readthedocs.io/en/7.6.1/",
+      "7.6.0": "https://coverage.readthedocs.io/en/7.6.0/",
+      "7.5.4": "https://coverage.readthedocs.io/en/7.5.4/",
+      "7.5.3": "https://coverage.readthedocs.io/en/7.5.3/",
+      "7.5.2": "https://coverage.readthedocs.io/en/7.5.2/",
       "7.5.1": "https://coverage.readthedocs.io/en/7.5.1/",
       "7.5.0": "https://coverage.readthedocs.io/en/7.5.0/",
       "7.4.4": "https://coverage.readthedocs.io/en/7.4.4/",
@@ -84,7 +114,25 @@
       "coverage-5.0.2": "https://coverage.readthedocs.io/en/coverage-5.0.2/",
       "coverage-5.0.1": "https://coverage.readthedocs.io/en/coverage-5.0.1/",
       "coverage-5.0": "https://coverage.readthedocs.io/en/coverage-5.0/",
-      "coverage-4.5.4": "https://coverage.readthedocs.io/en/coverage-4.5.4/"
+      "coverage-4.5.4": "https://coverage.readthedocs.io/en/coverage-4.5.4/",
+      "coverage-4.5.3": "https://coverage.readthedocs.io/en/coverage-4.5.3/",
+      "coverage-4.5.2": "https://coverage.readthedocs.io/en/coverage-4.5.2/",
+      "coverage-4.5.1": "https://coverage.readthedocs.io/en/coverage-4.5.1/",
+      "coverage-4.5": "https://coverage.readthedocs.io/en/coverage-4.5/",
+      "coverage-4.4.2": "https://coverage.readthedocs.io/en/coverage-4.4.2/",
+      "coverage-4.4.1": "https://coverage.readthedocs.io/en/coverage-4.4.1/",
+      "coverage-4.4": "https://coverage.readthedocs.io/en/coverage-4.4/",
+      "coverage-4.3.4": "https://coverage.readthedocs.io/en/coverage-4.3.4/",
+      "coverage-4.3.3": "https://coverage.readthedocs.io/en/coverage-4.3.3/",
+      "coverage-4.3.2": "https://coverage.readthedocs.io/en/coverage-4.3.2/",
+      "coverage-4.3.1": "https://coverage.readthedocs.io/en/coverage-4.3.1/",
+      "coverage-4.3": "https://coverage.readthedocs.io/en/coverage-4.3/",
+      "coverage-4.2": "https://coverage.readthedocs.io/en/coverage-4.2/",
+      "coverage-4.1": "https://coverage.readthedocs.io/en/coverage-4.1/",
+      "coverage-4.0.3": "https://coverage.readthedocs.io/en/coverage-4.0.3/",
+      "coverage-4.0.2": "https://coverage.readthedocs.io/en/coverage-4.0.2/",
+      "coverage-4.0.1": "https://coverage.readthedocs.io/en/coverage-4.0.1/",
+      "coverage-4.0": "https://coverage.readthedocs.io/en/coverage-4.0/"
     },
     "sources": {
       "readthedocs": "coverage"
@@ -112,7 +160,9 @@
     "versions": {
       "latest": "https://ml.dask.org"
     },
-    "sources": {}
+    "sources": {
+      "readthedocs": "dask-ml"
+    }
   },
   "ddt": {
     "versions": {
@@ -136,13 +186,14 @@
     "versions": {
       "latest": "https://docker-py.readthedocs.io/en/latest/",
       "stable": "https://docker-py.readthedocs.io/en/stable/",
+      "7.1.0": "https://docker-py.readthedocs.io/en/7.1.0/",
       "7.0.0": "https://docker-py.readthedocs.io/en/7.0.0/",
       "6.1.3": "https://docker-py.readthedocs.io/en/6.1.3/",
       "6.1.2": "https://docker-py.readthedocs.io/en/6.1.2/",
       "6.1.1": "https://docker-py.readthedocs.io/en/6.1.1/",
       "6.1.0": "https://docker-py.readthedocs.io/en/6.1.0/",
       "6.0.1": "https://docker-py.readthedocs.io/en/6.0.1/",
-      "6.0.0": "https://readthedocs.org/dashboard/docker-py/version/6.0.0/edit/",
+      "6.0.0": "https://docker-py.readthedocs.io/en/6.0.0/",
       "5.0.3": "https://docker-py.readthedocs.io/en/5.0.3/",
       "5.0.2": "https://docker-py.readthedocs.io/en/5.0.2/",
       "5.0.1": "https://docker-py.readthedocs.io/en/5.0.1/",
@@ -159,60 +210,23 @@
       "4.2.0": "https://docker-py.readthedocs.io/en/4.2.0/",
       "4.1.0": "https://docker-py.readthedocs.io/en/4.1.0/",
       "4.0.2": "https://docker-py.readthedocs.io/en/4.0.2/",
-      "4.0.1": "https://docker-py.readthedocs.io/en/4.0.1/",
-      "3.7.0": "https://docker-py.readthedocs.io/en/3.7.0/",
-      "3.6.0": "https://docker-py.readthedocs.io/en/3.6.0/",
-      "3.5.1": "https://docker-py.readthedocs.io/en/3.5.1/",
-      "3.5.0": "https://docker-py.readthedocs.io/en/3.5.0/",
-      "3.4.0": "https://docker-py.readthedocs.io/en/3.4.0/",
-      "3.3.0": "https://docker-py.readthedocs.io/en/3.3.0/",
-      "3.2.1": "https://docker-py.readthedocs.io/en/3.2.1/",
-      "3.2.0": "https://docker-py.readthedocs.io/en/3.2.0/",
-      "3.1.1": "https://docker-py.readthedocs.io/en/3.1.1/",
-      "3.1.0": "https://docker-py.readthedocs.io/en/3.1.0/",
-      "3.0.1": "https://docker-py.readthedocs.io/en/3.0.1/",
-      "3.0.0": "https://docker-py.readthedocs.io/en/3.0.0/",
-      "2.7.0": "https://docker-py.readthedocs.io/en/2.7.0/",
-      "2.6.1": "https://docker-py.readthedocs.io/en/2.6.1/",
-      "2.6.0": "https://docker-py.readthedocs.io/en/2.6.0/",
-      "2.5.1": "https://docker-py.readthedocs.io/en/2.5.1/",
-      "2.5.0": "https://docker-py.readthedocs.io/en/2.5.0/",
-      "2.4.2": "https://docker-py.readthedocs.io/en/2.4.2/",
-      "2.3.0": "https://docker-py.readthedocs.io/en/2.3.0/",
-      "2.2.1": "https://docker-py.readthedocs.io/en/2.2.1/",
-      "2.2.0": "https://docker-py.readthedocs.io/en/2.2.0/",
-      "2.1.0": "https://docker-py.readthedocs.io/en/2.1.0/",
-      "2.0.2": "https://docker-py.readthedocs.io/en/2.0.2/",
-      "2.0.1": "https://docker-py.readthedocs.io/en/2.0.1/",
-      "1.10.6": "https://docker-py.readthedocs.io/en/1.10.6/",
-      "1.10.4": "https://docker-py.readthedocs.io/en/1.10.4/",
-      "1.10.3": "https://docker-py.readthedocs.io/en/1.10.3/",
-      "1.10.2": "https://docker-py.readthedocs.io/en/1.10.2/",
-      "1.10.0": "https://docker-py.readthedocs.io/en/1.10.0/",
-      "1.9.0": "https://docker-py.readthedocs.io/en/1.9.0/",
-      "1.8.1": "https://docker-py.readthedocs.io/en/1.8.1/",
-      "1.8.0": "https://docker-py.readthedocs.io/en/1.8.0/",
-      "1.7.2": "https://docker-py.readthedocs.io/en/1.7.2/",
-      "1.7.1": "https://docker-py.readthedocs.io/en/1.7.1/",
-      "1.7.0": "https://docker-py.readthedocs.io/en/1.7.0/",
-      "1.6.0": "https://docker-py.readthedocs.io/en/1.6.0/",
-      "1.5.0": "https://docker-py.readthedocs.io/en/1.5.0/",
-      "1.4.0": "https://docker-py.readthedocs.io/en/1.4.0/",
-      "1.3.1": "https://docker-py.readthedocs.io/en/1.3.1/",
-      "1.3.0": "https://docker-py.readthedocs.io/en/1.3.0/",
-      "1.2.3": "https://docker-py.readthedocs.io/en/1.2.3/",
-      "1.2.2": "https://docker-py.readthedocs.io/en/1.2.2/",
-      "1.2.1": "https://docker-py.readthedocs.io/en/1.2.1/",
-      "1.2.0": "https://docker-py.readthedocs.io/en/1.2.0/",
-      "1.1.0": "https://docker-py.readthedocs.io/en/1.1.0/"
+      "4.0.1": "https://docker-py.readthedocs.io/en/4.0.1/"
     },
     "sources": {
       "readthedocs": "docker-py"
     }
   },
   "docopt": {
-    "versions": {},
-    "sources": {}
+    "versions": {
+      "latest": "https://docopt.readthedocs.io/en/latest",
+      "stable": "https://docopt.readthedocs.io/en/stable",
+      "0.4.0": "https://docopt.readthedocs.io/en/0.4.0",
+      "0.3.0": "https://docopt.readthedocs.io/en/0.3.0",
+      "0.2.0": "https://docopt.readthedocs.io/en/0.2.0"
+    },
+    "sources": {
+      "readthedocs": "docopt"
+    }
   },
   "flaky": {
     "versions": {},
@@ -231,6 +245,11 @@
     "versions": {
       "latest": "https://docs.h5py.org/en/latest/",
       "stable": "https://docs.h5py.org/en/stable/",
+      "3.15.0": "https://docs.h5py.org/en/3.15.0/",
+      "3.14.0": "https://docs.h5py.org/en/3.14.0/",
+      "3.13.0": "https://docs.h5py.org/en/3.13.0/",
+      "3.12.1": "https://docs.h5py.org/en/3.12.1/",
+      "3.12.0": "https://docs.h5py.org/en/3.12.0/",
       "3.11.0": "https://docs.h5py.org/en/3.11.0/",
       "3.10.0": "https://docs.h5py.org/en/3.10.0/",
       "3.9.0": "https://docs.h5py.org/en/3.9.0/",
@@ -259,6 +278,12 @@
     "versions": {
       "latest": "https://imageio.readthedocs.io/en/latest/",
       "stable": "https://imageio.readthedocs.io/en/stable/",
+      "v2.37.0": "https://imageio.readthedocs.io/en/v2.37.0/",
+      "v2.36.1": "https://imageio.readthedocs.io/en/v2.36.1/",
+      "v2.36.0": "https://imageio.readthedocs.io/en/v2.36.0/",
+      "v2.35.1": "https://imageio.readthedocs.io/en/v2.35.1/",
+      "v2.35.0": "https://imageio.readthedocs.io/en/v2.35.0/",
+      "v2.34.2": "https://imageio.readthedocs.io/en/v2.34.2/",
       "v2.34.1": "https://imageio.readthedocs.io/en/v2.34.1/",
       "v2.34.0": "https://imageio.readthedocs.io/en/v2.34.0/",
       "v2.33.1": "https://imageio.readthedocs.io/en/v2.33.1/",
@@ -338,13 +363,16 @@
   "jinja2": {
     "versions": {
       "latest": "https://jinja.palletsprojects.com/en/latest/",
+      "stable": "https://jinja.palletsprojects.com/en/stable/",
       "3.1.x": "https://jinja.palletsprojects.com/en/3.1.x/",
       "3.0.x": "https://jinja.palletsprojects.com/en/3.0.x/",
       "2.11.x": "https://jinja.palletsprojects.com/en/2.11.x/",
       "2.10.x": "https://jinja.palletsprojects.com/en/2.10.x/",
       "2.9.x": "https://jinja.palletsprojects.com/en/2.9.x/"
     },
-    "sources": {}
+    "sources": {
+      "readthedocs": "jinja"
+    }
   },
   "lightning": {
     "versions": {
@@ -363,6 +391,15 @@
     "versions": {
       "latest": "https://mne.tools/dev/",
       "stable": "https://mne.tools/stable/",
+      "1.9.x": "https://mne.tools/1.9/",
+      "1.8.x": "https://mne.tools/1.8/",
+      "1.7.x": "https://mne.tools/1.7/",
+      "1.6.x": "https://mne.tools/1.6/",
+      "1.5.x": "https://mne.tools/1.5/",
+      "1.4.x": "https://mne.tools/1.4/",
+      "1.3.x": "https://mne.tools/1.3/",
+      "1.2.x": "https://mne.tools/1.2/",
+      "1.1.x": "https://mne.tools/1.1/",
       "1.0.x": "https://mne.tools/1.0/",
       "0.24.x": "https://mne.tools/0.24/",
       "0.23.x": "https://mne.tools/0.23/",
@@ -381,18 +418,22 @@
     },
     "sources": {}
   },
-  "nose": {
-    "versions": {
-      "latest": "https://nose.readthedocs.io/en/latest/"
-    },
-    "sources": {
-      "readthedocs": "nose"
-    }
-  },
   "numba": {
     "versions": {
       "latest": "https://numba.readthedocs.io/en/latest/",
       "stable": "https://numba.readthedocs.io/en/stable/",
+      "0.62.1": "https://numba.readthedocs.io/en/0.62.1/",
+      "0.62.0": "https://numba.readthedocs.io/en/0.62.0/",
+      "0.62.0rc2": "https://numba.readthedocs.io/en/0.62.0rc2/",
+      "0.62.0rc1": "https://numba.readthedocs.io/en/0.62.0rc1/",
+      "0.61.2": "https://numba.readthedocs.io/en/0.61.2/",
+      "0.61.1": "https://numba.readthedocs.io/en/0.61.1/",
+      "0.61.1rc1": "https://numba.readthedocs.io/en/0.61.1rc1/",
+      "0.61.0": "https://numba.readthedocs.io/en/0.61.0/",
+      "0.61.0rc2": "https://numba.readthedocs.io/en/0.61.0rc2/",
+      "0.61.0rc1": "https://numba.readthedocs.io/en/0.61.0rc1/",
+      "0.60.0": "https://numba.readthedocs.io/en/0.60.0/",
+      "0.60.0rc1": "https://numba.readthedocs.io/en/0.60.0rc1/",
       "0.59.1": "https://numba.readthedocs.io/en/0.59.1/",
       "0.59.0": "https://numba.readthedocs.io/en/0.59.0/",
       "0.59.0rc1": "https://numba.readthedocs.io/en/0.59.0rc1/",
@@ -431,8 +472,13 @@
     "versions": {
       "latest": "https://numpy.org/devdocs/",
       "stable": "https://numpy.org/doc/stable/",
-      "1.24.2": "https://numpy.org/doc/1.24/",
-      "1.23.4": "https://numpy.org/doc/1.23/",
+      "2.3.x": "https://numpy.org/doc/2.3/",
+      "2.2.x": "https://numpy.org/doc/2.2/",
+      "2.1.x": "https://numpy.org/doc/2.1/",
+      "2.0.x": "https://numpy.org/doc/2.0/",
+      "1.26.x": "https://numpy.org/doc/1.26/",
+      "1.25.x": "https://numpy.org/doc/1.25/",
+      "1.24.x": "https://numpy.org/doc/1.24/",
       "1.23.x": "https://numpy.org/doc/1.23/",
       "1.22.x": "https://numpy.org/doc/1.22/",
       "1.21.x": "https://numpy.org/doc/1.21/",
@@ -462,6 +508,10 @@
     "versions": {
       "latest": "https://pandas.pydata.org/docs/dev/",
       "stable": "https://pandas.pydata.org/docs/",
+      "2.2.x": "https://pandas.pydata.org/pandas-docs/version/2.2/",
+      "2.1.x": "https://pandas.pydata.org/pandas-docs/version/2.1/",
+      "2.0.x": "https://pandas.pydata.org/pandas-docs/version/2.0/",
+      "1.5.x": "https://pandas.pydata.org/pandas-docs/version/1.5/",
       "1.4.x": "https://pandas.pydata.org/pandas-docs/version/1.4/",
       "1.3.x": "https://pandas.pydata.org/pandas-docs/version/1.3/",
       "1.2.x": "https://pandas.pydata.org/pandas-docs/version/1.2/",
@@ -522,16 +572,17 @@
     "versions": {
       "latest": "https://docs.pytest.org/en/latest/",
       "stable": "https://docs.pytest.org/en/stable/",
+      "8.3.x": "https://docs.pytest.org/en/8.3.x/",
+      "8.2.x": "https://docs.pytest.org/en/8.2.x/",
+      "8.1.x": "https://docs.pytest.org/en/8.1.x/",
+      "8.0.x": "https://docs.pytest.org/en/8.0.x/",
+      "7.4.x": "https://docs.pytest.org/en/7.4.x/",
+      "7.3.x": "https://docs.pytest.org/en/7.3.x/",
       "7.2.x": "https://docs.pytest.org/en/7.2.x/",
       "7.1.x": "https://docs.pytest.org/en/7.1.x/",
       "7.0.x": "https://docs.pytest.org/en/7.0.x/",
       "6.2.x": "https://docs.pytest.org/en/6.2.x/",
-      "4.6.x": "https://docs.pytest.org/en/4.6.x/",
-      "7.4.x": "https://docs.pytest.org/en/7.4.x/",
-      "7.3.x": "https://docs.pytest.org/en/7.3.x/",
-      "8.2.x": "https://docs.pytest.org/en/8.2.x/",
-      "8.1.x": "https://docs.pytest.org/en/8.1.x/",
-      "8.0.x": "https://docs.pytest.org/en/8.0.x/"
+      "4.6.x": "https://docs.pytest.org/en/4.6.x/"
     },
     "sources": {
       "readthedocs": "pytest"
@@ -541,7 +592,7 @@
     "versions": {
       "latest": "https://pytest-cov.readthedocs.io/en/latest/",
       "stable": "https://pytest-cov.readthedocs.io/en/stable/",
-      "v2.10.1_a": "https://pytest-cov.readthedocs.io/en/v2.10.1_a/",
+      "v2.10.1": "https://pytest-cov.readthedocs.io/en/v2.10.1_a/",
       "v2.10.0": "https://pytest-cov.readthedocs.io/en/v2.10.0/",
       "v2.9.0": "https://pytest-cov.readthedocs.io/en/v2.9.0/",
       "v2.8.1": "https://pytest-cov.readthedocs.io/en/v2.8.1/",
@@ -560,6 +611,7 @@
       "stable": "https://docs.python.org/",
       "3": "https://docs.python.org/3/",
       "3.x.x": "https://docs.python.org/3/",
+      "3.13.x": "https://docs.python.org/3.13/",
       "3.12.x": "https://docs.python.org/3.12/",
       "3.11.x": "https://docs.python.org/3.11/",
       "3.10.x": "https://docs.python.org/3.10/",
@@ -588,6 +640,16 @@
     "versions": {
       "latest": "https://pyzmq.readthedocs.io/en/latest/",
       "stable": "https://pyzmq.readthedocs.io/en/stable/",
+      "v27.1.0": "https://pyzmq.readthedocs.io/en/v27.1.0/",
+      "v27.0.2": "https://pyzmq.readthedocs.io/en/v27.0.2/",
+      "v27.0.1": "https://pyzmq.readthedocs.io/en/v27.0.1/",
+      "v27.0.0": "https://pyzmq.readthedocs.io/en/v27.0.0/",
+      "v26.4.0": "https://pyzmq.readthedocs.io/en/v26.4.0/",
+      "v26.3.0": "https://pyzmq.readthedocs.io/en/v26.3.0/",
+      "v26.2.1": "https://pyzmq.readthedocs.io/en/v26.2.1/",
+      "v26.2.0": "https://pyzmq.readthedocs.io/en/v26.2.0/",
+      "v26.1.1": "https://pyzmq.readthedocs.io/en/v26.1.1/",
+      "v26.1.0": "https://pyzmq.readthedocs.io/en/v26.1.0/",
       "v26.0.3": "https://pyzmq.readthedocs.io/en/v26.0.3/",
       "v26.0.2": "https://pyzmq.readthedocs.io/en/v26.0.2/",
       "v26.0.1": "https://pyzmq.readthedocs.io/en/v26.0.1/",
@@ -668,6 +730,11 @@
     "versions": {
       "latest": "https://scikit-image.org/docs/dev/",
       "stable": "https://scikit-image.org/docs/stable/",
+      "0.24.x": "https://scikit-image.org/docs/0.24.x/",
+      "0.23.x": "https://scikit-image.org/docs/0.23.x/",
+      "0.22.x": "https://scikit-image.org/docs/0.22.x/",
+      "0.21.x": "https://scikit-image.org/docs/0.21.x/",
+      "0.20.x": "https://scikit-image.org/docs/0.20.x/",
       "0.19.x": "https://scikit-image.org/docs/0.19.x/",
       "0.18.x": "https://scikit-image.org/docs/0.18.x/",
       "0.17.x": "https://scikit-image.org/docs/0.17.x/",
@@ -692,6 +759,13 @@
     "versions": {
       "latest": "https://scikit-learn.org/dev/",
       "stable": "https://scikit-learn.org/stable/",
+      "1.7.x": "https://scikit-learn.org/1.7/",
+      "1.6.x": "https://scikit-learn.org/1.6/",
+      "1.5.x": "https://scikit-learn.org/1.5/",
+      "1.4.x": "https://scikit-learn.org/1.4/",
+      "1.3.x": "https://scikit-learn.org/1.3/",
+      "1.2.x": "https://scikit-learn.org/1.2/",
+      "1.1.x": "https://scikit-learn.org/1.1/",
       "1.0.x": "https://scikit-learn.org/1.0/",
       "0.24.x": "https://scikit-learn.org/0.24/",
       "0.23.x": "https://scikit-learn.org/0.23/",
@@ -709,29 +783,21 @@
     "versions": {
       "latest": "https://scipy.github.io/devdocs/",
       "stable": "https://docs.scipy.org/doc/scipy/",
-      "1.9.0": "https://docs.scipy.org/doc/scipy-1.9.0/",
-      "1.8.1": "https://docs.scipy.org/doc/scipy-1.8.1/",
-      "1.8.0": "https://docs.scipy.org/doc/scipy-1.8.0/",
-      "1.7.1": "https://docs.scipy.org/doc/scipy-1.7.1/",
-      "1.7.0": "https://docs.scipy.org/doc/scipy-1.7.0/",
-      "1.6.3": "https://docs.scipy.org/doc/scipy-1.6.3/",
-      "1.6.2": "https://docs.scipy.org/doc/scipy-1.6.2/",
-      "1.6.1": "https://docs.scipy.org/doc/scipy-1.6.1/",
-      "1.6.0": "https://docs.scipy.org/doc/scipy-1.6.0/",
-      "1.5.4": "https://docs.scipy.org/doc/scipy-1.5.4/",
-      "1.5.3": "https://docs.scipy.org/doc/scipy-1.5.3/",
-      "1.5.2": "https://docs.scipy.org/doc/scipy-1.5.2/",
-      "1.5.1": "https://docs.scipy.org/doc/scipy-1.5.1/",
-      "1.5.0": "https://docs.scipy.org/doc/scipy-1.5.0/",
-      "1.4.1": "https://docs.scipy.org/doc/scipy-1.4.1/",
-      "1.4.0": "https://docs.scipy.org/doc/scipy-1.4.0/",
-      "1.3.3": "https://docs.scipy.org/doc/scipy-1.3.3/",
-      "1.3.2": "https://docs.scipy.org/doc/scipy-1.3.2/",
-      "1.3.1": "https://docs.scipy.org/doc/scipy-1.3.1/",
-      "1.3.0": "https://docs.scipy.org/doc/scipy-1.3.0/",
-      "1.2.3": "https://docs.scipy.org/doc/scipy-1.2.3/",
-      "1.2.1": "https://docs.scipy.org/doc/scipy-1.2.1/",
-      "1.2.0": "https://docs.scipy.org/doc/scipy-1.2.0/"
+      "1.16.x": "https://docs.scipy.org/doc/scipy-1.16.2/",
+      "1.15.x": "https://docs.scipy.org/doc/scipy-1.15.3/",
+      "1.14.x": "https://docs.scipy.org/doc/scipy-1.14.1/",
+      "1.13.x": "https://docs.scipy.org/doc/scipy-1.13.1/",
+      "1.12.x": "https://docs.scipy.org/doc/scipy-1.12.0/",
+      "1.11.x": "https://docs.scipy.org/doc/scipy-1.11.4/",
+      "1.10.x": "https://docs.scipy.org/doc/scipy-1.10.0/",
+      "1.9.x": "https://docs.scipy.org/doc/scipy-1.9.3/",
+      "1.8.x": "https://docs.scipy.org/doc/scipy-1.8.1/",
+      "1.7.x": "https://docs.scipy.org/doc/scipy-1.7.1/",
+      "1.6.x": "https://docs.scipy.org/doc/scipy-1.6.3/",
+      "1.5.x": "https://docs.scipy.org/doc/scipy-1.5.4/",
+      "1.4.x": "https://docs.scipy.org/doc/scipy-1.4.1/",
+      "1.3.x": "https://docs.scipy.org/doc/scipy-1.3.3/",
+      "1.2.x": "https://docs.scipy.org/doc/scipy-1.2.3/"
     },
     "sources": {}
   },
@@ -748,7 +814,11 @@
     "versions": {
       "latest": "https://simplejson.readthedocs.io/en/latest/",
       "stable": "https://simplejson.readthedocs.io/en/stable/",
-      "v3.19.2": "https://readthedocs.org/dashboard/simplejson/version/v3.19.2/edit/",
+      "v3.20.2": "https://simplejson.readthedocs.io/en/v3.20.2/",
+      "v3.20.1": "https://simplejson.readthedocs.io/en/v3.20.1/",
+      "v3.20.0": "https://simplejson.readthedocs.io/en/v3.20.0/",
+      "v3.19.3": "https://simplejson.readthedocs.io/en/v3.19.3/",
+      "v3.19.2": "https://simplejson.readthedocs.io/en/v3.19.2/",
       "v3.19.1": "https://simplejson.readthedocs.io/en/v3.19.1/",
       "v3.19.0": "https://simplejson.readthedocs.io/en/v3.19.0/",
       "v3.18.4": "https://simplejson.readthedocs.io/en/v3.18.4/",
@@ -779,8 +849,21 @@
     }
   },
   "soundfile": {
-    "versions": {},
-    "sources": {}
+    "versions": {
+      "latest": "https://python-soundfile.readthedocs.io/en/latest",
+      "0.13.1": "https://python-soundfile.readthedocs.io/en/0.13.1",
+      "0.11.0": "https://python-soundfile.readthedocs.io/en/0.11.0",
+      "0.10.3post1": "https://python-soundfile.readthedocs.io/en/0.10.3post1",
+      "0.10.0": "https://python-soundfile.readthedocs.io/en/0.10.0",
+      "0.9.0": "https://python-soundfile.readthedocs.io/en/0.9.0",
+      "0.8.1": "https://python-soundfile.readthedocs.io/en/0.8.1",
+      "0.8.0": "https://python-soundfile.readthedocs.io/en/0.8.0",
+      "0.7.0": "https://python-soundfile.readthedocs.io/en/0.7.0",
+      "0.6.0": "https://python-soundfile.readthedocs.io/en/0.6.0"
+    },
+    "sources": {
+      "readthedocs": "python-soundfile"
+    }
   },
   "sphinx": {
     "versions": {
@@ -788,6 +871,15 @@
     },
     "sources": {
       "readthedocs": "sphinx"
+    }
+  },
+  "sphinx-argparse": {
+    "versions": {
+      "latest": "https://sphinx-argparse.readthedocs.io/en/latest/",
+      "stable": "https://sphinx-argparse.readthedocs.io/en/stable/"
+    },
+    "sources": {
+      "readthedocs": "sphinx-argparse"
     }
   },
   "sphinx-autodoc-typehints": {
@@ -875,13 +967,17 @@
   },
   "tomlkit": {
     "versions": {
-      "latest": "https://tomlkit.readthedocs.io/en/latest/"
+      "latest": "https://tomlkit.readthedocs.io/en/latest",
+      "stable": "https://tomlkit.readthedocs.io/en/stable"
     },
-    "sources": {}
+    "sources": {
+      "readthedocs": "tomlkit"
+    }
   },
   "torch": {
     "versions": {
-      "stable": "https://pytorch.org/docs/stable/"
+      "stable": "https://pytorch.org/docs/stable/",
+      "latest": "https://pytorch.org/docs/main/"
     },
     "sources": {}
   },
@@ -894,7 +990,8 @@
   },
   "torchvision": {
     "versions": {
-      "stable": "https://pytorch.org/vision/stable/"
+      "stable": "https://pytorch.org/vision/stable/",
+      "latest": "https://pytorch.org/vision/main/"
     },
     "sources": {}
   },
@@ -906,6 +1003,48 @@
     "versions": {
       "latest": "https://docs.xarray.dev/en/latest/",
       "stable": "https://docs.xarray.dev/en/stable/",
+      "v2025.10.1": "https://docs.xarray.dev/en/v2025.10.1/",
+      "v2025.10.0": "https://docs.xarray.dev/en/v2025.10.0/",
+      "v2025.09.1": "https://docs.xarray.dev/en/v2025.09.1/",
+      "v2025.09.0": "https://docs.xarray.dev/en/v2025.09.0/",
+      "v2025.08.0": "https://docs.xarray.dev/en/v2025.08.0/",
+      "v2025.07.1": "https://docs.xarray.dev/en/v2025.07.1/",
+      "v2025.07.0": "https://docs.xarray.dev/en/v2025.07.0/",
+      "v2025.06.1": "https://docs.xarray.dev/en/v2025.06.1/",
+      "v2025.06.0": "https://docs.xarray.dev/en/v2025.06.0/",
+      "v2025.04.0": "https://docs.xarray.dev/en/v2025.04.0/",
+      "v2025.03.1": "https://docs.xarray.dev/en/v2025.03.1/",
+      "v2025.03.0": "https://docs.xarray.dev/en/v2025.03.0/",
+      "v2025.01.2": "https://docs.xarray.dev/en/v2025.01.2/",
+      "v2025.01.1": "https://docs.xarray.dev/en/v2025.01.1/",
+      "v2025.01.0": "https://docs.xarray.dev/en/v2025.01.0/",
+      "v2024.11.0": "https://docs.xarray.dev/en/v2024.11.0/",
+      "v2024.10.0": "https://docs.xarray.dev/en/v2024.10.0/",
+      "v2024.09.0": "https://docs.xarray.dev/en/v2024.09.0/",
+      "v2024.07.0": "https://docs.xarray.dev/en/v2024.07.0/",
+      "v2024.06.0": "https://docs.xarray.dev/en/v2024.06.0/",
+      "v2024.05.0": "https://docs.xarray.dev/en/v2024.05.0/",
+      "v2024.03.0": "https://docs.xarray.dev/en/v2024.03.0/",
+      "v2024.02.0": "https://docs.xarray.dev/en/v2024.02.0/",
+      "v2024.01.1": "https://docs.xarray.dev/en/v2024.01.1/",
+      "v2024.01.0": "https://docs.xarray.dev/en/v2024.01.0/",
+      "v2023.12.0": "https://docs.xarray.dev/en/v2023.12.0/",
+      "v2023.11.0": "https://docs.xarray.dev/en/v2023.11.0/",
+      "v2023.10.1": "https://docs.xarray.dev/en/v2023.10.1/",
+      "v2023.10.0": "https://docs.xarray.dev/en/v2023.10.0/",
+      "v2023.09.0": "https://docs.xarray.dev/en/v2023.09.0/",
+      "v2023.08.0": "https://docs.xarray.dev/en/v2023.08.0/",
+      "v2023.07.0": "https://docs.xarray.dev/en/v2023.07.0/",
+      "v2023.06.0": "https://docs.xarray.dev/en/v2023.06.0/",
+      "v2023.05.0": "https://docs.xarray.dev/en/v2023.05.0/",
+      "v2023.04.2": "https://docs.xarray.dev/en/v2023.04.2/",
+      "v2023.04.1": "https://docs.xarray.dev/en/v2023.04.1/",
+      "v2023.04.0": "https://docs.xarray.dev/en/v2023.04.0/",
+      "v2023.03.0": "https://docs.xarray.dev/en/v2023.03.0/",
+      "v2023.02.0": "https://docs.xarray.dev/en/v2023.02.0/",
+      "v2023.01.0": "https://docs.xarray.dev/en/v2023.01.0/",
+      "v2022.12.0": "https://docs.xarray.dev/en/v2022.12.0/",
+      "v2022.11.0": "https://docs.xarray.dev/en/v2022.11.0/",
       "v2022.10.0": "https://docs.xarray.dev/en/v2022.10.0/",
       "v2022.09.0": "https://docs.xarray.dev/en/v2022.09.0/",
       "v2022.06.0": "https://docs.xarray.dev/en/v2022.06.0/",
@@ -925,8 +1064,52 @@
       "v0.15.1": "https://docs.xarray.dev/en/v0.15.1/",
       "v0.14.1": "https://docs.xarray.dev/en/v0.14.1/",
       "v0.14.0": "https://docs.xarray.dev/en/v0.14.0/",
-      "v0.13.0": "https://docs.xarray.dev/en/v0.13.0/"
+      "v0.13.0": "https://docs.xarray.dev/en/v0.13.0/",
+      "v0.12.3": "https://docs.xarray.dev/en/v0.12.3/",
+      "v0.12.2": "https://docs.xarray.dev/en/v0.12.2/",
+      "v0.12.1": "https://docs.xarray.dev/en/v0.12.1/",
+      "v0.12.0": "https://docs.xarray.dev/en/v0.12.0/",
+      "v0.11.3": "https://docs.xarray.dev/en/v0.11.3/",
+      "v0.11.2": "https://docs.xarray.dev/en/v0.11.2/",
+      "v0.11.1": "https://docs.xarray.dev/en/v0.11.1/",
+      "v0.11.0": "https://docs.xarray.dev/en/v0.11.0/",
+      "v0.10.9": "https://docs.xarray.dev/en/v0.10.9/",
+      "v0.10.8": "https://docs.xarray.dev/en/v0.10.8/",
+      "v0.10.7": "https://docs.xarray.dev/en/v0.10.7/",
+      "v0.10.6": "https://docs.xarray.dev/en/v0.10.6/",
+      "v0.10.4": "https://docs.xarray.dev/en/v0.10.4/",
+      "v0.10.3": "https://docs.xarray.dev/en/v0.10.3/",
+      "v0.10.2": "https://docs.xarray.dev/en/v0.10.2/",
+      "v0.10.1": "https://docs.xarray.dev/en/v0.10.1/",
+      "v0.10.0": "https://docs.xarray.dev/en/v0.10.0/",
+      "v0.9.6": "https://docs.xarray.dev/en/v0.9.6/",
+      "v0.9.5": "https://docs.xarray.dev/en/v0.9.5/",
+      "v0.9.3": "https://docs.xarray.dev/en/v0.9.3/",
+      "v0.9.2": "https://docs.xarray.dev/en/v0.9.2/",
+      "v0.9.1": "https://docs.xarray.dev/en/v0.9.1/",
+      "v0.9.0": "https://docs.xarray.dev/en/v0.9.0/",
+      "v0.8.2": "https://docs.xarray.dev/en/v0.8.2/",
+      "v0.8.1": "https://docs.xarray.dev/en/v0.8.1/",
+      "v0.8.0": "https://docs.xarray.dev/en/v0.8.0/",
+      "v0.7.2": "https://docs.xarray.dev/en/v0.7.2/",
+      "v0.7.1": "https://docs.xarray.dev/en/v0.7.1/",
+      "v0.7.0": "https://docs.xarray.dev/en/v0.7.0/",
+      "v0.6.1": "https://docs.xarray.dev/en/v0.6.1/",
+      "v0.6.0": "https://docs.xarray.dev/en/v0.6.0/",
+      "v0.5.2": "https://docs.xarray.dev/en/v0.5.2/",
+      "v0.5.1": "https://docs.xarray.dev/en/v0.5.1/",
+      "v0.5": "https://docs.xarray.dev/en/v0.5/",
+      "v0.4.1": "https://docs.xarray.dev/en/v0.4.1/",
+      "v0.4": "https://docs.xarray.dev/en/v0.4/",
+      "v0.3.2": "https://docs.xarray.dev/en/v0.3.2/",
+      "v0.3.1": "https://docs.xarray.dev/en/v0.3.1/",
+      "v0.3": "https://docs.xarray.dev/en/v0.3/",
+      "v0.2": "https://docs.xarray.dev/en/v0.2/",
+      "v0.1.1": "https://docs.xarray.dev/en/v0.1.1/",
+      "0.11.x": "https://docs.xarray.dev/en/0.11.x/"
     },
-    "sources": {}
+    "sources": {
+      "readthedocs": "xray"
+    }
   }
 }
