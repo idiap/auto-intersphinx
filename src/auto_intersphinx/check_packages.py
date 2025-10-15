@@ -65,7 +65,7 @@ def _main(args) -> None:
                     continue
 
         if not args.no_rtd:
-            versions = docurls_from_rtd(p)
+            versions = docurls_from_rtd(p, recurse=args.rtd_recurse)
             if versions:
                 print(f"Found {p} documentation in readthedocs.org:")
                 print(textwrap.indent(json.dumps(versions, indent=2), "  | "))
@@ -162,6 +162,18 @@ def add_parser(subparsers) -> argparse.ArgumentParser:
         action="store_true",
         default=False,
         help="If set, then do not check readthedocs.org for package documentation",
+    )
+
+    parser.add_argument(
+        "-r",
+        "--rtd-recurse",
+        action="store_true",
+        default=False,
+        help=oneliner(
+            """
+            If set, then recurse at readthedocs.org to retrieve all available versions
+            """
+        ),
     )
 
     parser.add_argument(

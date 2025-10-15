@@ -219,7 +219,7 @@ def populate_intersphinx_mapping(app: Sphinx, config: Config) -> None:
             )
 
         # try to see if the package is available on readthedocs.org
-        user_catalog.update_versions_from_rtd(p, None)
+        user_catalog.update_versions_from_rtd(p, None, recurse=True)
         user_lookup.reset()
         addr = user_lookup.get(p, v)
         if addr is not None:

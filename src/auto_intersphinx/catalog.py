@@ -3,20 +3,21 @@
 # SPDX-License-Identifier: BSD-3-Clause
 """This module contains instructions for documentation lookup."""
 
-from __future__ import annotations  # not required for Python >= 3.10
-
 import collections.abc
+import copy
 import importlib.metadata
 import importlib.resources
 import json
+import os
 import pathlib
 import re
 import shutil
+import tomllib
 import typing
 
-import lxml.html
 import packaging.version
 import requests
+import xdg
 
 from sphinx.util import logging
 
@@ -79,6 +80,36 @@ def _reorder_versions(vdict: dict[str, str]) -> dict[str, str]:
     return retval
 
 
+def _rtd_token() -> str | None:
+    """Gets the RTD token from global or environment config.
+
+    Priority:
+    1. Environment variable ``AUTO_INTERSPHINX_RTD_TOKEN``
+    2. Config file ~/.config/auto-intersphinx.toml (or XDG config path)
+
+    Returns
+    -------
+        The token if found, otherwise None.
+    """
+    # 1. Environment variable takes priority
+    token = os.getenv("AUTO_INTERSPHINX_RTD_TOKEN")
+    if token:
+        return token.strip()
+
+    # 2. Try the config file in XDG-compliant location
+    cfg_path = xdg.XDG_CONFIG_HOME / "auto-intersphinx.toml"
+    if not cfg_path.is_file():
+        return None
+
+    try:
+        with open(cfg_path, "rb") as f:
+            data = tomllib.load(f)
+            token = data.get("rtd-token")
+            return token.strip() if token else None
+    except (OSError, tomllib.TOMLDecodeError):
+        return None
+
+
 def docurls_from_environment(package: str) -> dict[str, str]:
     """Checks installed package metadata for documentation URLs.
 
@@ -90,8 +121,8 @@ def docurls_from_environment(package: str) -> dict[str, str]:
             number parsed by :py:class:`packaging.version.Version`.
 
 
-    Returns:
-
+    Returns
+    -------
         A dictionary, that maps the version of the documentation found on PyPI
         to the URL.
     """
@@ -121,7 +152,7 @@ def docurls_from_environment(package: str) -> dict[str, str]:
     return {}
 
 
-def docurls_from_rtd(package: str) -> dict[str, str]:
+def docurls_from_rtd(package: str, recurse: bool) -> dict[str, str]:
     """Checks readthedocs.org for documentation pointers for the package.
 
     Arguments:
@@ -130,24 +161,48 @@ def docurls_from_rtd(package: str) -> dict[str, str]:
             name it is know at rtd.org and not necessarily the package name.
             Some packages do have different names on rtd.org.
 
+        recurse: If RTD contains many pages of document versions, recurse until
+            all pages are read.  Otherwise, stop after the first set is retrieved.
+            This can set requests during tests.
 
-    Returns:
 
+    Returns
+    -------
         A dictionary, which contains all versions of documentation available
         for the given package on RTD.  If the package's documentation is not
         available on RTD, returns an empty dictionary.
     """
-    try:
-        url = f"https://readthedocs.org/projects/{package}/versions/"
-        logger.debug(f"Reaching for `{url}'...")
-        r = requests.get(f"https://readthedocs.org/projects/{package}/versions/")
-        if r.ok:
-            tree = lxml.html.fromstring(r.text)
-            return {
-                k.text: _ensure_webdir(k.attrib["href"])
-                for k in tree.xpath("//a[contains(@class, 'module-item-title')]")
-                if k.attrib["href"].startswith("http")
+
+    rtd_token = _rtd_token()
+
+    def _fetch_page_recursively(url) -> dict[str, str]:
+        if rtd_token is not None:
+            headers = {
+                "Authorization": f"Token {rtd_token}",
             }
+            logger.debug(f"Reaching for `{url}' (with token)...")
+            r = requests.get(url, headers=headers)
+        else:
+            logger.debug(f"Reaching for `{url}'...")
+            r = requests.get(url)
+        retval: dict[str, str] = {}
+        if r.ok:
+            data = r.json()
+            retval.update(
+                {
+                    k["verbose_name"]: _ensure_webdir(k["urls"]["documentation"])
+                    for k in data["results"]
+                    if k.get("active")
+                }
+            )
+            if data.get("next") is not None and recurse:
+                retval.update(_fetch_page_recursively(data.get("next")))
+
+        return retval
+
+    try:
+        url = f"https://readthedocs.org/api/v3/projects/{package}/versions/?limit=1000"
+        return _fetch_page_recursively(url)
 
     except requests.exceptions.RequestException:
         pass
@@ -188,8 +243,8 @@ def docurls_from_pypi(package: str, max_entries: int) -> dict[str, str]:
             negative value will imply the download of all available releases.
 
 
-    Returns:
-
+    Returns
+    -------
         A dictionary, that maps the version of the documentation found on PyPI
         to the URL.
     """
@@ -255,8 +310,8 @@ class Catalog(collections.abc.MutableMapping):
       information on those sources.
 
 
-    Attributes:
-
+    Attributes
+    ----------
         _data: Internal dictionary containing the mapping between package names
             the user can refer to, versions and eventual sources of such
             information.
@@ -347,8 +402,8 @@ class Catalog(collections.abc.MutableMapping):
                 then we just use ``pkg`` as the name to lookup.
 
 
-        Returns:
-
+        Returns
+        -------
             ``True``, if the update was successful (found versions), or
             ``False``, otherwise.
         """
@@ -371,7 +426,9 @@ class Catalog(collections.abc.MutableMapping):
 
         return len(versions) > 0
 
-    def update_versions_from_rtd(self, pkg: str, name: str | None) -> bool:
+    def update_versions_from_rtd(
+        self, pkg: str, name: str | None, recurse: bool
+    ) -> bool:
         """Replaces package documentation URLs using information from
         readthedocs.org.
 
@@ -384,9 +441,13 @@ class Catalog(collections.abc.MutableMapping):
                 If this value is set to ``None``, then we just use ``pkg`` as
                 the name to lookup.
 
+            recurse: If RTD contains many pages of document versions, recurse until
+                all pages are read. Otherwise, stop after the first set is retrieved.
+                This can set requests during tests.
 
-        Returns:
 
+        Returns
+        -------
             The dictionary of values for the current package, as obtained from
             readthedocs.org, and potentially merged with the existing one.
         """
@@ -396,7 +457,7 @@ class Catalog(collections.abc.MutableMapping):
 
         logger.debug(f"{pkg}: checking readthedocs.org for {name}...")
 
-        versions = docurls_from_rtd(name)
+        versions = docurls_from_rtd(name, recurse=recurse)
         logger.debug(f"{pkg}: Found {len(versions)} doc URL(s) at readthedocs.org")
 
         if versions:
@@ -430,8 +491,8 @@ class Catalog(collections.abc.MutableMapping):
                 all available releases.
 
 
-        Returns:
-
+        Returns
+        -------
             The dictionary of values for the current package, as obtained from
             pypi.org, and potentially merged with the existing one.
         """
@@ -457,8 +518,10 @@ class Catalog(collections.abc.MutableMapping):
         pkgs: typing.Iterable[str],
         order: typing.Iterable[str] = ["environment", "readthedocs", "pypi"],
         names: dict[str, dict[str, str]] = {},
+        rtd_recurse: bool = False,
         pypi_max_entries: int = 0,
         keep_going: bool = False,
+        update: bool = False,
     ) -> None:
         """Updates versions for a list of packages in this catalog.
 
@@ -489,6 +552,10 @@ class Catalog(collections.abc.MutableMapping):
                 their package names are used.  If the keys exist, but are set
                 to ``None``, then lookup for that particular source is skipped.
 
+            rtd_recurse: If RTD contains many pages of document versions, recurse until
+                all pages are read. Otherwise, stop after the first set is retrieved.
+                This can set requests during tests.
+
             pypi_max_entries: The maximum number of entries to lookup in PyPI.
                 A value of zero will download only the main package information
                 and will hit PyPI only once.  A value bigger than zero will
@@ -501,10 +568,19 @@ class Catalog(collections.abc.MutableMapping):
                 the flag ``keep_going`` is set to ``True`` (defaults to
                 ``False``), then it merges information from all sources.  Note
                 that some of this information may be repetitive.
+
+            update: if set to ``True``, then just updates the current list.  By default
+                it only preserves what it has fetched from the environment, RTD or PyPI,
+                unless that is empty, in which case, it makes no changes.
         """
 
         for pkg in pkgs:
             for action in order:
+                legacy = copy.deepcopy(self.get(pkg, {"versions": {}, "sources": {}}))
+
+                if "versions" in self.get(pkg, {}) and not update:
+                    self[pkg]["versions"] = {}
+
                 if action == "environment":
                     name = names.get(action, {}).get(pkg, pkg)
                     if name is not None:
@@ -515,7 +591,9 @@ class Catalog(collections.abc.MutableMapping):
                 elif action == "readthedocs":
                     name = names.get(action, {}).get(pkg, pkg)
                     if name is not None:
-                        ok = self.update_versions_from_rtd(pkg, name)
+                        ok = self.update_versions_from_rtd(
+                            pkg, name, recurse=rtd_recurse
+                        )
                         if ok and not keep_going:
                             break
 
@@ -529,15 +607,31 @@ class Catalog(collections.abc.MutableMapping):
                 else:
                     raise RuntimeError(f"Unrecognized source: {action}")
 
-    def self_update(self) -> None:
-        """Runs a self-update procedure, by re-looking up known sources."""
+                if not self[pkg]["versions"]:
+                    self[pkg] = legacy
+
+    def self_update(self, update: bool = False) -> None:
+        """Runs a self-update procedure, by re-looking up known sources.
+
+        Arguments:
+
+            update: if set to ``True``, then just updates the current list.  By default
+                it only preserves what it has fetched from the environment, RTD or PyPI,
+                unless that is empty, in which case, it makes no changes.
+        """
         # organises the names as expected by update_versions()
         names: dict[str, dict[str, str]] = dict(environment={}, readthedocs={}, pypi={})
         for pkg, info in self.items():
-            for src in ("environment", "readthedocs", "pypi"):
+            for src in ("readthedocs", "pypi"):
                 names[src][pkg] = info["sources"].get(src)
 
-        self.update_versions(pkgs=self.keys(), names=names)
+        self.update_versions(
+            pkgs=self.keys(),
+            order=["readthedocs", "pypi"],
+            names=names,
+            rtd_recurse=True,
+            update=update,
+        )
 
 
 def _string2version(v: str) -> packaging.version.Version | None:
@@ -556,8 +650,8 @@ def _string2version(v: str) -> packaging.version.Version | None:
            in the catalog
 
 
-    Returns:
-
+    Returns
+    -------
         Either ``None``, or the version object with the parsed version.
     """
     v = v.replace(".x", "")
@@ -585,8 +679,8 @@ def _prepare_versions(versions: dict[str, str]) -> dict[str, str]:
         documentation.
 
 
-    Returns:
-
+    Returns
+    -------
         A dictionary with keys that correspond to parsed versions and aliases.
     """
     if not versions:
@@ -692,8 +786,8 @@ class LookupCatalog:
             match.
 
 
-        Returns:
-
+        Returns
+        -------
             If a match is found, returns the URL for the documentation.
             Otherwise, returns the ``default`` value.
         """

@@ -94,8 +94,10 @@ def _main(args) -> None:
     if package_list:
         catalog.update_versions(
             pkgs=package_list,
+            rtd_recurse=args.rtd_recurse,
             pypi_max_entries=args.pypi_max_entries,
             keep_going=args.keep_going,
+            update=args.preserve_entries,
         )
 
     if args.output:
@@ -177,6 +179,18 @@ def add_parser(subparsers) -> argparse.ArgumentParser:
     )
 
     parser.add_argument(
+        "-r",
+        "--rtd-recurse",
+        action="store_true",
+        default=False,
+        help=oneliner(
+            """
+            If set, then recurse at readthedocs.org to retrieve all available versions
+            """
+        ),
+    )
+
+    parser.add_argument(
         "-M",
         "--pypi-max-entries",
         default=0,
@@ -202,6 +216,19 @@ def add_parser(subparsers) -> argparse.ArgumentParser:
             If set, then do not stop at first found reference (such as
             auto-intersphinx would do), but rather keep searching for all
             references.
+            """
+        ),
+    )
+
+    parser.add_argument(
+        "-P",
+        "--preserve-entries",
+        action="store_true",
+        default=False,
+        help=oneliner(
+            """
+            If set, then merges new found entries instead of resetting the list
+            to contain only fresh entries found on the environment, RTD or PyPI.
             """
         ),
     )
