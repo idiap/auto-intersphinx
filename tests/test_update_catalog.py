@@ -39,7 +39,7 @@ def test_dump(capsys, tmp_path):
     output = capsys.readouterr().out
     assert "click" not in output
     assert "https://pypi.org/pypi/numpy/json" not in output
-    assert "https://readthedocs.org/projects/packaging/versions/" not in output
+    assert "https://readthedocs.org/api/v3/projects/packaging/versions/" not in output
 
 
 def test_dump2(capsys, datadir, tmp_path):
@@ -64,7 +64,7 @@ def test_dump2(capsys, datadir, tmp_path):
     output = capsys.readouterr().out
     assert "click" not in output
     assert "https://pypi.org/pypi/numpy/json" not in output
-    assert "https://readthedocs.org/projects/packaging/versions/" not in output
+    assert "https://readthedocs.org/api/v3/projects/packaging/versions/" not in output
 
 
 def test_verbose_0(capsys, datadir, tmp_path):
@@ -157,7 +157,7 @@ def test_self_update(capsys, datadir, tmp_path):
     output = capsys.readouterr().out
     assert "click" not in output
     assert "https://pypi.org/pypi/numpy/json" in output
-    assert "https://readthedocs.org/projects/packaging/versions/" in output
+    assert "https://readthedocs.org/api/v3/projects/packaging/versions/" in output
 
 
 def test_boostrap_from_package_list(capsys, tmp_path):
@@ -186,7 +186,7 @@ def test_boostrap_from_package_list(capsys, tmp_path):
     assert "click" in output
     assert "numpy" in output
     assert "requests" in output
-    assert "https://readthedocs.org/projects/click/versions/" in output
+    assert "https://readthedocs.org/api/v3/projects/click/versions/" in output
     assert "https://pypi.org/pypi/click/json" in output
     assert "https://pypi.org/pypi/numpy/json" in output
     assert "https://pypi.org/pypi/requests/json" in output
@@ -218,7 +218,7 @@ def test_boostrap_from_package_list_to_stdout(capsys, tmp_path):
     assert "click" in output
     assert "numpy" in output
     assert "requests" in output
-    assert "https://readthedocs.org/projects/click/versions/" in output
+    assert "https://readthedocs.org/api/v3/projects/click/versions/" in output
     assert "https://pypi.org/pypi/click/json" in output
     assert "https://pypi.org/pypi/numpy/json" in output
     assert "https://pypi.org/pypi/requests/json" in output
@@ -252,7 +252,7 @@ def test_boostrap_from_file(capsys, datadir, tmp_path):
     assert "click" in output
     assert "numpy" in output
     assert "requests" in output
-    assert "https://readthedocs.org/projects/click/versions/" in output
+    assert "https://readthedocs.org/api/v3/projects/click/versions/" in output
     assert "https://pypi.org/pypi/click/json" in output
     assert "https://pypi.org/pypi/numpy/json" in output
     assert "https://pypi.org/pypi/requests/json" in output
