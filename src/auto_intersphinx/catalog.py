@@ -312,7 +312,8 @@ class Catalog(collections.abc.MutableMapping):
 
     Attributes
     ----------
-        _data: Internal dictionary containing the mapping between package names
+        _data:
+            Internal dictionary containing the mapping between package names
             the user can refer to, versions and eventual sources of such
             information.
     """
