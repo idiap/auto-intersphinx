@@ -2,6 +2,7 @@
   "click": {
     "versions": {
       "latest": "https://click.palletsprojects.com/en/latest/",
+      "stable": "https://click.palletsprojects.com/en/stable/",
       "8.1.x": "https://click.palletsprojects.com/en/8.1.x/",
       "8.0.x": "https://click.palletsprojects.com/en/8.0.x/",
       "7.x": "https://click.palletsprojects.com/en/7.x/",
