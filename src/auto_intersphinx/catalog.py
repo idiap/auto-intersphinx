@@ -12,6 +12,7 @@ import os
 import pathlib
 import re
 import shutil
+import time
 import tomllib
 import typing
 
@@ -197,6 +198,11 @@ def docurls_from_rtd(package: str, recurse: bool) -> dict[str, str]:
             )
             if data.get("next") is not None and recurse:
                 retval.update(_fetch_page_recursively(data.get("next")))
+        elif r.status_code == requests.status_codes.codes.too_many_requests:
+            wait = int(r.headers.get("retry-after", "60"))
+            logger.warning(f"Too many requests on RTD. Waiting for `{wait}' seconds...")
+            time.sleep(wait)
+            retval.update(_fetch_page_recursively(url))
 
         return retval
 
