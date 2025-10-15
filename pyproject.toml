@@ -41,7 +41,7 @@ doc = [
   "sphinx-argparse",
 ]
 test = ["pytest", "pytest-cov"]
-dev = ["pdbpp", "uv", "auto-intersphinx[doc,test,qa]"]
+dev = ["pdbpp", "auto-intersphinx[doc,test,qa]"]
 
 [project.scripts]
 auto-intersphinx = "auto_intersphinx.cli:main"
@@ -67,6 +67,11 @@ python = "~=3.11.0"
 
 [tool.pixi.feature.py312.dependencies]
 python = "~=3.12.0"
+
+[tool.pixi.feature.qa.dependencies]
+pre-commit = "*"
+ruff = "*"
+reuse = "*"
 
 [tool.pixi.feature.qa.tasks]
 qa-install = "pre-commit install"
