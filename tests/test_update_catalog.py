@@ -160,7 +160,7 @@ def test_self_update(capsys, datadir, tmp_path):
     assert "https://readthedocs.org/api/v3/projects/packaging/versions/" in output
 
 
-def test_boostrap_from_package_list(capsys, tmp_path):
+def test_bootstrap_from_package_list(capsys, tmp_path):
     catalog = tmp_path / "catalog.json"
 
     try:
@@ -193,7 +193,7 @@ def test_boostrap_from_package_list(capsys, tmp_path):
     assert "Saving package catalog with 3 entries at" in output
 
 
-def test_boostrap_from_package_list_to_stdout(capsys, tmp_path):
+def test_bootstrap_from_package_list_to_stdout(capsys, tmp_path):
     catalog = tmp_path / "catalog.json"
 
     try:
@@ -227,7 +227,7 @@ def test_boostrap_from_package_list_to_stdout(capsys, tmp_path):
     assert '"readthedocs": "requests"' in output
 
 
-def test_boostrap_from_file(capsys, datadir, tmp_path):
+def test_bootstrap_from_file(capsys, datadir, tmp_path):
     requirements = datadir / "requirements.txt"
     catalog = tmp_path / "catalog.json"
 
@@ -256,7 +256,8 @@ def test_boostrap_from_file(capsys, datadir, tmp_path):
     assert "https://pypi.org/pypi/click/json" in output
     assert "https://pypi.org/pypi/numpy/json" in output
     assert "https://pypi.org/pypi/requests/json" in output
-    assert "Saving package catalog with 13 entries at" in output
+    assert "Saving package catalog with 3 entries at" in output
+    assert "Copyright" not in output
 
 
 def test_remote_list_does_not_exist(capsys, tmp_path):
