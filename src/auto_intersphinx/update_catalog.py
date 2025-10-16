@@ -24,8 +24,8 @@ logger = logging.getLogger(__name__)
 
 def _parse_requirements(contents: str) -> list[str]:
     """Parses a pip-requirements file and extracts package lists."""
-    lines = contents.split()
-    lines = [k.strip() for k in lines if not k.strip().startswith("#")]
+    lines = contents.split("\n")
+    lines = [k.strip() for k in lines if not k.strip().startswith("#") and k.strip()]
     split_re = re.compile(r"[=\s]+")
     return [split_re.split(k)[0] for k in lines]
 
